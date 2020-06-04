@@ -1,0 +1,64 @@
+# ¿Qué es?
+
+Es un modelo basado en agentes basado en los estudios sobre el campesinado ruso durante los años '20 del siglo XX de Aleksandr Vasílievich Chayánov y la Escuela de Organización y Producción.
+En "La Organizacion de La Unidad Economica Campesina" el autor plantea que "la composición y el tamaño de la familia determinan íntegramente el monto de fuerza de trabajo, su composición y el grado de actividad". A lo largo del texto demuestra estadísticamente ese postulado.
+El objetivo de este modelo es simular el desarrollo de una unidad doméstica tal como lo explica Chayánov, poniendo en funcionamiento variables semejantes.
+
+
+# ¿Cómo funciona?
+Este modelo comienza con un matrimonio de un hombre y una mujer, con 25 y 20 años respectivamente, quiénes son productores y a la vez consumidores de sus bienes de subsistencia. A medida que pasa el tiempo (siendo 1 tick = 1 año) van naciendo hijos, factor que fuerza a los adultos a trabajar más.
+
+
+# ¿Cómo usarlo?
+## Botones
+1) Preparar: Dispone las variables y los agentes en el punto de inicio
+2) Avanzar-uno: Itera el sistema 1 vez, es decir, avanza un año en el desarrollo
+3) Correr: Da inicio a la simulación por un tiempo indeterminado. Suele terminar al morir uno de los padres
+
+## Valores
+### DE LOS AGENTES
+1) Edad: Años vividos por un agente
+2) Necesidad: Cantidad de unidades de recursos que va a consumir un agente por año, si no se satisface, el agente muere
+3) Fatiga: Cantidad de desgaste físico insumido por el trabajo (Mínimo = 0)
+4) Satisfacción: Medida del bienestar del agente (Máximo = 0)
+
+### GLOBALES
+1) Reserva: Recursos disponibles producidos y consumidos por la familia
+2) Años desde el último hijo: Intervalo entre el año presente y el año de nacimiento del último hijo, marca el momento en el que nacerá el próximo de acuerdo a la variable (3)
+
+# Deslizadores (Variables)
+1) Máximo-hijos: Cantidad de hijos en la que dejarán de nacer más
+2) Esperanza-de-vida: Edad a la que fallece un agente
+3) hijo-cada-tantos-años: Intervalo de tiempo en el que nace un nuevo hijo (En el modelo original de Chayánov este valor es de 3 (Chayánov, Cap. 1, p. 59))
+4) Necesidad-anual: Cantidad de recursos que consume un agente
+5) inserción-laboral: Edad a la que empieza a trabajar una persona (En el modelo original de Chayánov este valor es de 15 (Chayánov, Cap. 1, p. 55))
+6) Retiro: Edad a la que una persona deja de trabajar
+7) Precios: Multiplicador. Cantidad de producto (reserva) producida por unidad de trabajo (Fatiga).
+
+# Gráficos
+1-1) Cantidad de consumidores, trabajadores y la proporción entre unos y otros
+Proporción C/T: Ampliación del 1-1. Solo muestra la proporción entre consumidores y trabajadores
+2-3) Toma los valores del padre de familia. Mide la cantidad de trabajo que realida (fatiga) y su satisfacción, superpuestas ambas a las oscilaciones en la reserva de recursos
+Necesidades: Mide la necesidad del padre de familia superpuesta a la de toda la familia en conjunto
+
+# Cosas a observar
+
+A lo que debeponérsele más atención es a los valores cuantitativos expresados en los gráficos. Puede verse una correspondencia entre el trabajo realizado por el padre (que es igual al de la madre) y la proporción del cuadro C/T. En el período de crecimiento estos valores empiezan a cambiar exponencialmente, pero al acercarse a la vejez, cuando todos los hijos llegan a la edad en que trabajan, los valores tienden a estabilizarse.
+
+
+# Cosas a probar
+
+Modificar las variables puede mostrarnos cómo se comportarían los agentes en casos extremos y, al hacerlo, puede ilustrar ciertas tendencias que pasan desapercibidas en contextos normales.
+Si prolongamos la vida y el período en el cual trabajan los individuos en una gran cantidad, podemos ver que en su segundo ciclo de vida, la necesidad y satisfacción del padre llegan a 0, es decir, al punto muerto en el cual el agente ya no necesita esforzarse demasiado para mantenerse a sí mismo y a su familia, por lo cual deja de producir. Esto no es visible en un período normal de vida, dado que la fatiga e insatisfacción acumuladas durante los años en los que tuvo que mantener a sus hijos no llegan a disolverse antes del fin de la vida de los padres.
+Asimismo, es posible notar la regla explicada por Chayánov según la cual a menor precio, mayor productividad por parte de los trabajadores, dado que los agentes aquí no buscan elevar sus reservas, sino que éstas lleguen a cubrir las necesidades de la familia.
+
+# Notas
+
+Todos los productores producen y consumen la misma cantidad (1) de rexursos, en lugar de los valores propuestos por Chayánov.
+
+# Créditos y referencias
+
+Leopoldo Bebchuk, Facultad de Filosofía y Letras, Universidad de Buenos Aires. 26/06/2016
+
+Bibliografía:
+-Chayánov, Alexander V. La organización de la unidad económica campesina. Ediciones Nueva Visión, Buenos Aires, 1985
